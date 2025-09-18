@@ -29,7 +29,7 @@ vim.o.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+  -- vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -148,6 +148,7 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -157,6 +158,7 @@ rtp:prepend(lazypath)
 --
 --  To update plugins you can run
 --    :Lazy update
+--
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
@@ -790,28 +792,6 @@ require('lazy').setup({
     },
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
-      }
-
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-    end,
-  },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -878,9 +858,9 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  require('lazy').setup('plugins'),
+  -- require('lazy').setup('plugins'),
 
-  -- { import = 'custom.plugins' },
+  { import = 'plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
