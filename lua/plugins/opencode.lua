@@ -13,7 +13,10 @@ return {
     vim.opt.autoread = true
 
     -- Recommended keymaps
-    vim.keymap.set('n', '<leader>ot', function()
+    vim.keymap.set('n', '<C-o>', function()
+      require('opencode').toggle()
+    end, { desc = 'Toggle' })
+    vim.keymap.set('t', '<C-o>', function()
       require('opencode').toggle()
     end, { desc = 'Toggle' })
     vim.keymap.set('n', '<leader>oA', function()
