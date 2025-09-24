@@ -19,6 +19,7 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          -- these keys get in the way of my global find-file command
           ['f'] = 'noop',
           ['<space>'] = 'noop',
         },
