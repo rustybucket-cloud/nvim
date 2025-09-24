@@ -1,5 +1,7 @@
 return {
-  'sudo-tee/opencode.nvim',
+  -- 'sudo-tee/opencode.nvim',
+  dir = '~/dev/opencode.nvim',
+  name = 'opencode.nvim',
   config = function()
     -- Default configuration with all available options
     require('opencode').setup {
@@ -67,7 +69,7 @@ return {
         },
         input = {
           text = {
-            wrap = false, -- Wraps text inside input window
+            wrap = true, -- Wraps text inside input window
           },
         },
         completion = {
