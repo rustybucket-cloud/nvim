@@ -49,6 +49,8 @@ return {
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = '[H]arpoon', mode = { 'n', 'v' } },
       { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
+      { '<leader>o', group = '[O]pencode', mode = { 'n', 'v' } },
+      { '<leader>w', group = 'Easymotion', mode = { 'n', 'v' } },
     },
   },
 }
