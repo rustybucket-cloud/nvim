@@ -1,7 +1,5 @@
 return {
-  -- 'sudo-tee/opencode.nvim',
-  dir = '~/dev/opencode.nvim',
-  name = 'opencode.nvim',
+  'sudo-tee/opencode.nvim',
   config = function()
     -- Default configuration with all available options
     require('opencode').setup {
