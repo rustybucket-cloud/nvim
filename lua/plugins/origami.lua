@@ -1,3 +1,5 @@
+-- Nvim Origami: A Neovim plugin for code folding using LSP and Treesitter
+
 return {
   'chrisgrieser/nvim-origami',
   event = 'VeryLazy',

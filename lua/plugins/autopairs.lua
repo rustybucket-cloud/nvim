@@ -1,4 +1,4 @@
--- autopairs
+-- autopairs: Automatically insert matching pairs of characters
 -- https://github.com/windwp/nvim-autopairs
 
 return {

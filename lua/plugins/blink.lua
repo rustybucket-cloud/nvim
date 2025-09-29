@@ -1,3 +1,5 @@
+--Blink: A supercharged autocompletion plugin for Neovim
+
 return {
   {
     'saghen/blink.cmp',

@@ -1,3 +1,5 @@
+--Floaterm: a floating terminal plugin for Vim and Neovim
+
 local floatterm_open = 0
 
 local function floaterm_open()

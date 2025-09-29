@@ -1,3 +1,5 @@
+--Conform: a universal code formatter plugin for Neovim
+
 return {
   {
     'stevearc/conform.nvim',

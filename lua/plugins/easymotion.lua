@@ -1,3 +1,5 @@
+--Easymotion: a Vim motion plugin that allows you to jump to any location in the visible text with a few keystrokes.
+
 return {
   'easymotion/vim-easymotion',
   event = 'VeryLazy',
