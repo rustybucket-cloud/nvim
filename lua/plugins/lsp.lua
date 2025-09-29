@@ -37,6 +37,7 @@ return {
           map('gl', function()
             vim.diagnostic.open_float(nil, { scope = 'cursor', border = 'rounded', source = 'if_many', focus = false })
           end, 'Show Line Diagnostics')
+          map('gT', vim.lsp.buf.hover, 'Hover Type Info')
           local function client_supports_method(client, method, bufnr)
             if vim.fn.has 'nvim-0.11' == 1 then
               return client:supports_method(method, bufnr)
