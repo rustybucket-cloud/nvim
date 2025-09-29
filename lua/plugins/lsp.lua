@@ -34,6 +34,9 @@ return {
           map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
             map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+          map('gl', function()
+            vim.diagnostic.open_float(nil, { scope = 'cursor', border = 'rounded', source = 'if_many', focus = false })
+          end, 'Show Line Diagnostics')
           local function client_supports_method(client, method, bufnr)
             if vim.fn.has 'nvim-0.11' == 1 then
               return client:supports_method(method, bufnr)
