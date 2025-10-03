@@ -42,9 +42,9 @@ end
 return {
   'voldikss/vim-floaterm',
   config = function()
-    vim.keymap.set('n', "<C-'>", floaterm_open, { desc = 'Toggle Floaterm' })
+    vim.keymap.set('n', '<C-j>', floaterm_open, { desc = 'Toggle Floaterm', noremap = true })
 
-    vim.keymap.set('t', "<C-'>", floaterm_close, { desc = 'Toggle Floaterm' })
+    vim.keymap.set('t', '<C-j>', floaterm_close, { desc = 'Toggle Floaterm' })
     vim.keymap.set('t', '<C-n>', floaterm_new, { desc = 'New Floaterm' })
     vim.keymap.set('t', '<C-q>', floaterm_kill, { desc = 'Kill Floaterm' })
     vim.keymap.set('t', '<C-l>', floaterm_next, { desc = 'Next Floaterm' })
