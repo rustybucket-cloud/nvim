@@ -1,8 +1,11 @@
 local M = {}
 
+M.default_width = 0.5
+M.resize_step = 10
+
 M.opencode_cmd = "opencode --port"
 M.opencode_terminal_opts = {
-  win = { position = "right", enter = false },
+  win = { position = "right", width = M.default_width, enter = false },
 }
 
 local providers = { "claude", "opencode" }
@@ -96,6 +99,45 @@ function M.open()
   else
     require("snacks.terminal").toggle(M.opencode_cmd, M.opencode_terminal_opts)
   end
+end
+
+---@return integer? winid the window id of the currently open AI window, if any
+local function current_winid()
+  if current == "claude" then
+    local ok, terminal = pcall(require, "claudecode.terminal")
+    if not ok then
+      return nil
+    end
+    local bufnr = terminal.get_active_terminal_bufnr()
+    if not bufnr then
+      return nil
+    end
+    return vim.fn.win_findbuf(bufnr)[1]
+  end
+  local win = opencode_win()
+  return win and win:valid() and win.win or nil
+end
+
+---Grow or shrink the currently open AI window by the given number of columns.
+---@param delta integer positive to grow, negative to shrink
+function M.resize(delta)
+  local win = current_winid()
+  if not win then
+    vim.notify("No AI window open to resize", vim.log.levels.WARN)
+    return
+  end
+  vim.api.nvim_win_set_width(win, math.max(1, vim.api.nvim_win_get_width(win) + delta))
+end
+
+---Set the currently open AI window's width to a percentage of the editor width.
+---@param pct number width as a fraction of vim.o.columns (e.g. 0.5 for 50%)
+function M.resize_to(pct)
+  local win = current_winid()
+  if not win then
+    vim.notify("No AI window open to resize", vim.log.levels.WARN)
+    return
+  end
+  vim.api.nvim_win_set_width(win, math.max(1, math.floor(vim.o.columns * pct)))
 end
 
 return M

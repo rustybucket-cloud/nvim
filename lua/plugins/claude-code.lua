@@ -3,6 +3,8 @@ return {
   dependencies = { "folke/snacks.nvim", "bridle" },
   event = "VeryLazy",
   config = function(_, opts)
+    local ai = require("bridle")
+    opts = vim.tbl_deep_extend("force", { terminal = { split_width_percentage = ai.default_width } }, opts or {})
     require("claudecode").setup(opts)
 
     -- The snacks terminal provider logs an ERROR for any nonzero exit status,
