@@ -1,6 +1,6 @@
 return {
   "coder/claudecode.nvim",
-  dependencies = { "folke/snacks.nvim" },
+  dependencies = { "folke/snacks.nvim", "bridle" },
   event = "VeryLazy",
   config = function(_, opts)
     require("claudecode").setup(opts)
@@ -49,8 +49,8 @@ return {
   },
   keys = {
     { "<leader>a", nil, desc = "AI/Claude Code" },
-    { "<leader>ac", function() require("util.ai").open() end, desc = "Toggle AI (claude/opencode)" },
-    { "<leader>aP", function() require("util.ai").toggle_provider() end, desc = "Switch AI provider" },
+    { "<leader>ac", function() require("bridle").open() end, desc = "Toggle AI (claude/opencode)" },
+    { "<leader>aP", function() require("bridle").toggle_provider() end, desc = "Switch AI provider" },
     { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
     { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
     { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
